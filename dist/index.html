@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- style -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style2.css" />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <!-- style khusus -->
+    <style>
+        #menu-toggle:checked + #menu {
+          display: block;
+        }
+    </style>
+
+    <title>XC Club</title>
+</head>
+<body>
+    <!-- navbar -->
+    <header class="lg:px-16 px-6 bg-white flex flex-wrap items-center pb-3 pt-3 md:pb-5">
+        <div class="flex-1 flex justify-between items-center">
+            <img src="img/InfoPMB-Universitas-Budi-Luhur.png" class="w-52 pt-2 md:pt-4 md:w-52 md:ml-5" alt="logo" />
+        </div>
+
+        <label for="menu-toggle" class="cursor-pointer lg:hidden block"
+        ><svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+            <title>menu</title>
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg
+        ></label>
+        <input class="hidden" type="checkbox" id="menu-toggle" />
+
+        <div class="hidden lg:flex lg:items-center lg:w-auto w-full" id="menu">
+        <nav class="md:pt-5 md:mr-5">
+            <ul class="lg:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-4 lg:pt-0 md:text-sm font-poppins">
+            <li class="nav__item">
+                <a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400 hover:text-indigo-400 active-link" href="#home">HOME</a>
+            </li>
+            <li class="nav-item">
+                <a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400 hover:text-indigo-400" href="#member">MEMBER</a>
+            </li>
+            <li>
+                <a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400 hover:text-indigo-400" href="#">ACTIVITY</a>
+            </li>
+            <li>
+                <a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400 hover:text-indigo-400" href="#">ABOUT</a>
+            </li>
+            <!-- <li>
+                <div @click.away="open = false" class="relative" x-data="{ open: false }">
+                    <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                      <span>RIWAYAT</span>
+                      <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </button>
+                    <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
+                      <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">XC</a>
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#"></a>
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#"></a>
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#"></a>
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#"></a>
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#"></a>
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#"></a>
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#"></a>
+                      </div>
+                    </div>
+                  </div>
+            </li> -->
+            </ul>
+        </nav>
+        </div>
+    </header>
+  <!-- end navbar -->
+
+  <!-- Home -->
+  <section class="home section" id="home">
+    
+  </section>
+  <!-- End Home -->
+
+  <!-- Kegiatan/Picture -->
+  <section class=" section" id="home">
+
+  </section>
+  <!-- End Kegiatan/Picture -->
+
+  <!-- Anggota -->
+  <section class="member section" id="member">
+    <div class="bg-sky-500 h-auto">
+        <div class="container mx-auto pt-5 pb-10 font-poppins">
+            <h1 class="text-center text-4xl text-extrabold text-white font-poppins pt-3 md:pt-6 pb-10 mb:pb-1 px-20"><strong>XC-Class Angkatan 22</strong></h1>
+
+            <div class="hidden md:flex">
+                <div class="grid grid-cols-1 gap-10 mt-4 mb-16 ml-10 mr-10 md:grid-cols-6">
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Aferil Yudhatama</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Ahmad Kailani</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Ahmad Sabastian</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Aldhi Ardhiansyah</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Alfath Sulthon</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/female.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Anisa Dwi Utami</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Arif Firmansyah</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Arvan Bukhari Putri Maulana</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Dinar Ahgil Misman</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Dodi Prayoga</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/female.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Ezza Valent Putri</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Fadilla Muhammad</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Febyan Syah</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Fikri Abdilah</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Frizas Febby El Hadzi</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Ghazirah Aswan</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/female.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Ghina Nabila Febrianti</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Gigih Sehannoto</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Hafidhul Azmi</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/female.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Junica Kristin Ompusunggu</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Laksana Tahta Ardhya Kusuma</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/female.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Maryam Pingkan Putri</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Muhammad Fauzan Fathan</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Muhammad Hariz Nurbudianto</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Muhammad Rizky Marten</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Muhammad syachru Rizky</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Muhammad Syauqi Sheridan</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Muhammad Tri Saputra</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Naufal Zhulian Livanos</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Orbit Rasi Rayana Jati</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Prince Kamga Bravo</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Raffi Syahrialdi R</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Rasendriya Daniswara</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Rendy Lorenso</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Riyan Aqil Khairan</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Ryan Adriawan</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/female.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Shafina Dwiandra Putri</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Syawal Dias Alfarizqi</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Vincent Gunawan</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/female.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Wasilah Ulul Azmi</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/male.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Wildan Harya Khairi</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                    <div class="border bg-gray-200 shadow-lg rounded-md">
+                        <img class="md:px-10 pt-3" src="img/female.svg" alt="male" />
+                        <h1 class="mt-2 mb-1 font-poppins text-center">Zea Gratis Ismael</h1>
+                        <h4 class="mt-2 mb-3 font-poppins text-center text-sm text-gray-500">Mahasiswa UBL</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:hidden overflow-y-auto h-32 pr-5 pl-5 font-poppins">
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Aferil Yudhatama</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Ahmad Kailani</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Ahmad Sabastian</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Aldhi Ardhiansyah</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Alfath Sulthon</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/female.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Anisa Dwi Utami</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Arif Firmansyah</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Arvan Bukhari Putri Maulana</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Dinar Ahgil Misman</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Dodi Prayoga</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/female.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Ezza Valent Putri</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Fadilla Muhammad</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Febyan Syah</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Fikri Abdilah</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Frizas Febby El Hadzi</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Ghazirah Aswan</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/female.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Ghina Nabila Febrianti</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Gigih Sehannoto</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Hafidhul Azmi</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/female.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Junica Kristin Ompusunggu</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Laksana Tahta Ardhya Kusuma</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/female.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Maryam Pingkan Putri</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Muhammad Fauzan Fathan</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Muhammad Hariz Nurbudianto</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Muhammad Rizky Marten</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Muhammad Syachru Rizky</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Muhammad Syauqi Sheridan</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Muhammad Tri Saputra</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Naufal Zhulian Livanos</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Orbit Rasi Rayana Jati</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Prince Kamga Bravo</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Raffi Syahrialdi R</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Rasendriya Daniswara</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Rendy Lorenso</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Riyan Aqil Khairan</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Ryan Adriawan</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/female.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Shafina Dwiandra Putri</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Syawal Dias Alfarizqi</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Vincent Gunawan</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/female.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Wasilah Ulul Azmi</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/male.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Wildan Harya Khairi</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border bg-gray-200 shadow-lg rounded">
+                    <div class="col-span-12">
+                        <div class="grid grid-cols-12 pt-2 pb-2">
+                            <div class="col-span-2 pt-1 pl-3"><img src="img/female.svg" alt=""></div>
+                            <div class="col-span-7 pl-3 ">
+                                <p>Zea Gratis Ismael</p>
+                                <p class="text-xs text-gray-500">Mahasiswa UBL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Anggota -->
+
+  <!-- Footer -->
+  <div class="bg-sky-700 h-auto">
+    <div class="container mx-auto font-poppins">
+      <p class="text-white text-center pt-10 pb-10">
+        Copyright @ 2022. <a class="text-blue-300 md:hover:text-white" href="#">XC-Class</a>. All Right Reserved
+      </p>
+    </div>
+  </div>
+  <!-- Footer -->
+
+  <!-- JavaScript -->
+    <!-- Scroll Back to Top -->
+    <script src="js/up_btn.js"></script>
+    <script>
+    up({});
+    </script>
+    <!-- Scroll Back to Top -->
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    AOS.init();
+    </script>
+  <!-- End JavaScript -->
+
+</body>
+</html>
