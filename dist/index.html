@@ -839,13 +839,52 @@
         </div>
     </div>
   </section>
-<!-- End Anggota -->
+    <!-- End Anggota -->
+
+    <!-- pesan/kesan -->
+    <section class="comment section" id="comment">
+        <div class="bg-stone-100 h-auto">
+            <div class="container mx-auto pt-5 pb-10 font-poppins">
+                <h1 class="text-center text-4xl text-extrabold text-sky-600 font-poppins pt-3 md:pt-6 pb-5 md:pb-10 px-20"><strong>Pesan & Kesan</strong></h1>
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="w-full pt-1 px-5 md:px-32 md:h-full pt-3 md:pt-0 pb-2 md:pb-0" data-aos="fade-right">
+                        <img src="img/undraw_with_love_re_1q3m.svg" alt="GambarXC" />
+                    </div>
+    
+                    <div class="ml-3 mt-2 md:mt-0">
+                      <div class="bg-emerald-200 border border-emerald-400 text-emerald-700 my-3 mx-4 w-5/6 px-7 py-2 rounded relative hidden my-alert" role="alert">
+                        <p><strong class="font-bold">Terima Kasih!</strong> Pesan anda sudah kami terima.</p>
+                        <!-- <span class="absolute top-0 bottom-0 right-0 px-4 py-5 md:py-2">
+                          <svg class="fill-current h-6 w-6 text-elmerald-700" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+                        </span> -->
+                      </div>
+                      <form name="xc-comment-form">
+                        <div class="flex-col">
+                          <input type="text" class="my-3 mx-4 w-5/6 px-7 py-2 rounded-md drop-shadow-md" name="nama" placeholder="Nama">
+                          <input type="email" class="my-3 mx-4 w-5/6 px-7 py-2 rounded-md drop-shadow-md" name="email" placeholder="Email">
+                          <textarea class="my-3 mx-4 px-7 py-3 w-5/6 rounded-md drop-shadow-md" id="" cols="30" rows="5" name="pesan_&_kesan" placeholder="Pesan & Kesan"></textarea>
+                          <button type="submit" class="btn-kirim my-3 mx-4 py-2 px-8 border rounded-md bg-blue-700 hover:bg-blue-400 duration-200 text-white">Send</button>
+                          <button type="button" class="btn-loading hidden inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-indigo-500 hover:bg-indigo-400 transition ease-in-out duration-150 cursor-not-allowed ml-4" disabled="">
+                            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Processing...
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- pesan/kesan -->
 
   <!-- Footer -->
   <div class="bg-sky-700 h-auto">
     <div class="container mx-auto font-poppins">
       <p class="text-white text-center pt-10 pb-10">
-        Copyright @ 2022. <a class="text-blue-300 md:hover:text-white" href="#">XC-Class</a>. All Right Reserved
+        © 2022. <a class="text-blue-300 md:hover:text-white" href="#">XC-Class</a>. All Right Reserved
       </p>
     </div>
   </div>
@@ -863,6 +902,38 @@
     <script>
     AOS.init();
     </script>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycby2DmiB-SnjEZuQvz850BEVeicdMuGJNurheC5xiKGeDW5EgLKBlwXC1vyqMKalspYa/exec'
+        const form = document.forms['xc-comment-form']
+        const btnKirim = document.querySelector('.btn-kirim')
+        const btnLoading = document.querySelector('.btn-loading')
+        const myAlert = document.querySelector('.my-alert')
+  
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+  
+          <!-- tampil-tloading-hilang-tkirim -->
+          btnLoading.classList.toggle('hidden')
+          btnKirim.classList.toggle('hidden')
+  
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+              
+              <!-- tampil-tkirim-hilang-tloading -->
+              btnLoading.classList.toggle('hidden')
+              btnKirim.classList.toggle('hidden')
+  
+              <!-- tampilkan-alert -->
+              myAlert.classList.toggle('hidden')
+              
+              <!-- reset-form -->
+              form.reset()
+              console.log('Success!', response)
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
   <!-- End JavaScript -->
 
 </body>
